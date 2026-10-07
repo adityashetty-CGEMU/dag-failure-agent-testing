@@ -6,7 +6,7 @@ from agent_failure_callback import notify_dag_failure_agent
 
 
 def read_setting(settings, key):
-    return settings[key]
+    return settings.get(key)
 
 
 def run_final_flight():
@@ -27,7 +27,3 @@ with DAG(
         task_id="run_final_flight",
         python_callable=run_final_flight,
     )
-
-
-# agent fix could not be applied automatically
-# UnidiffParseError: Hunk is shorter than expected
